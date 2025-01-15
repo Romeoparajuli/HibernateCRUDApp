@@ -1,0 +1,60 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!-- 
+    The DOCTYPE declaration defines the Document Type Definition (DTD) for the Hibernate configuration file.
+    It ensures the configuration file adheres to the correct structure and syntax as specified by Hibernate.
+ -->
+
+<hibernate-configuration>
+    <!-- Root element for Hibernate configuration -->
+    <session-factory>
+        <!-- Defines the Hibernate SessionFactory configuration -->
+        
+        <!-- JDBC Driver class -->
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <!-- 
+            Specifies the JDBC driver for MySQL.
+            The `com.mysql.cj.jdbc.Driver` is the driver class provided by the MySQL Connector/J library.
+        -->
+
+        <!-- Database connection URL -->
+        <property name="connection.url">jdbc:mysql://localhost:3306/springhibernate</property>
+        <!-- 
+            The connection URL specifies the protocol (`jdbc:mysql://`), the hostname (`localhost`), 
+            the port number (`3306`), and the database name (`springhibernate`).
+        -->
+
+        <!-- Database username -->
+        <property name="connection.username">root</property>
+        <!-- The username used to authenticate with the database server. -->
+
+        <!-- Database password -->
+        <property name="connection.password">password</property>
+        <!-- The password for the specified database username. -->
+
+        <!-- Hibernate auto DDL (Data Definition Language) generation -->
+        <property name="hbm2ddl.auto">update</property>
+        <!-- 
+            Specifies the strategy for schema generation.
+            - `update`: Updates the schema if needed without dropping the existing data.
+            - Other options: `create`, `create-drop`, `validate`, or `none`.
+            - Use `update` cautiously in production as it modifies the schema automatically.
+        -->
+
+        <!-- Show SQL queries in the console -->
+        <property name="show_sql">true</property>
+        <!-- 
+            When set to `true`, Hibernate logs the generated SQL statements to the console. 
+            Useful for debugging and verifying queries during development.
+        -->
+
+        <!-- Entity class mapping -->
+        <mapping class="com.romeo.Main.Entity.User" />
+        <!-- 
+            Specifies the fully qualified class name of the mapped entity (e.g., `User`).
+            Hibernate uses this mapping to map the class to its corresponding database table.
+        -->
+
+    </session-factory>
+</hibernate-configuration>
